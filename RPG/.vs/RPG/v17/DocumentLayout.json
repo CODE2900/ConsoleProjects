@@ -1,0 +1,54 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\User\\Desktop\\C\u002B\u002B Exercise\\RPG\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{96C805C7-A6D0-40F2-B455-B2FBF8B72E25}|RPG.vcxproj|C:\\Users\\User\\Desktop\\C\u002B\u002B Exercise\\RPG\\RPG.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{96C805C7-A6D0-40F2-B455-B2FBF8B72E25}|RPG.vcxproj|solutionrelative:RPG.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{96C805C7-A6D0-40F2-B455-B2FBF8B72E25}|RPG.vcxproj|C:\\Users\\User\\Desktop\\C\u002B\u002B Exercise\\RPG\\CHARACTER.H||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{96C805C7-A6D0-40F2-B455-B2FBF8B72E25}|RPG.vcxproj|solutionrelative:CHARACTER.H||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Character.h",
+              "DocumentMoniker": "C:\\Users\\User\\Desktop\\C\u002B\u002B Exercise\\RPG\\Character.h",
+              "RelativeDocumentMoniker": "Character.h",
+              "ToolTip": "C:\\Users\\User\\Desktop\\C\u002B\u002B Exercise\\RPG\\Character.h",
+              "RelativeToolTip": "Character.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABwAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-12-24T00:48:02.171Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "RPG.cpp",
+              "DocumentMoniker": "C:\\Users\\User\\Desktop\\C\u002B\u002B Exercise\\RPG\\RPG.cpp",
+              "RelativeDocumentMoniker": "RPG.cpp",
+              "ToolTip": "C:\\Users\\User\\Desktop\\C\u002B\u002B Exercise\\RPG\\RPG.cpp",
+              "RelativeToolTip": "RPG.cpp",
+              "ViewState": "AgIAAJcAAAAAAAAAAAAAALgAAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-12-20T02:42:40.045Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
