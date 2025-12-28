@@ -4,12 +4,14 @@
 using namespace std;
 
 // Player Properties & Methods
-Player::Player(string name, int health, int Atk,int Def)
+Player::Player(string name, int health, int level,int MaxExp, int Atk, int Def)
 {
     Name = name;
     Health = health;
+    Level = level;
     ATK = Atk;
     DEF = Def;
+    MaxEXP = MaxExp;
 }
 
 void Player::TakeDamage(int dmg)
@@ -48,6 +50,26 @@ string Player::GetName() const
     return Name;
 }
 
+void Player::LevelUp(int amount)
+{
+    Level += amount;
+    cout << "LEVEL UP: " << Level << endl;;
+
+}
+void Player::GainExp(int amount)
+{
+    CurrentEXP += amount;
+    cout << "EXP Gain: " << amount << endl;
+    cout << "EXP: " << CurrentEXP << "/" << MaxEXP << endl;
+
+    if (CurrentEXP >= MaxEXP)
+    {
+        CurrentEXP -= MaxEXP;
+        LevelUp(1);
+        MaxEXP += 10;
+    }
+}
+
 void CharacterSelection(Player& player)
 {
     int selection;
@@ -76,12 +98,13 @@ void CharacterSelection(Player& player)
     }
 }
 // Enemy - Properties & Methods
-Enemy::Enemy(string name, int HP, int Atk, int Def)
+Enemy::Enemy(string name, int HP, int Atk, int Def,int Exp)
 {
     Name = name;
     Health = HP;
     ATK = Atk;
     DEF = Def;
+    EXP = Exp;
 }
 Enemy Enemy::GenerateBasicEnemy()
 {
@@ -90,13 +113,13 @@ Enemy Enemy::GenerateBasicEnemy()
     switch (randomNum)
     {
     case 0:
-        return Enemy("Slime", 20, 1, 2);
+        return Enemy("Slime", 20, 1, 2, 2);
     case 1:
-        return Enemy("Goblin", 25, 3, 1);
+        return Enemy("Goblin", 25, 3, 1, 3);
     case 2:
-        return Enemy("Wolf", 30, 3, 1);
+        return Enemy("Wolf", 30, 3, 1, 3);
     default:
-        return Enemy("NULL", 0, 0, 0);
+        return Enemy("NULL", 0, 0, 0,0);
     }
 }
 void Enemy::TakeDamage(int dmg)
@@ -115,7 +138,8 @@ void Enemy::TakeDamage(int dmg)
 }
 int Enemy::Damage()
 {
-    return ATK;
+    int extra = rand() % (ATK + 3);
+    return ATK + extra;
 }
 
 int Enemy::GetEnemyHealth() const
@@ -126,6 +150,10 @@ int Enemy::GetEnemyHealth() const
 string Enemy::GetEnemyName() const
 {
     return Name;
+}
+int Enemy::GetEnemyEXP() const
+{
+    return EXP;
 }
 
 //Other properties method
@@ -147,11 +175,19 @@ void InitiateBattle(Player& player, Enemy& enemy)
             break;
         default:
             cout << "Invalid Cmd\n";
-            break;
+            continue;
         }
 
-        if (player.GetHealth() <= 0 || enemy.GetEnemyHealth() <= 0)
+        player.TakeDamage(enemy.Damage());
+
+        if (player.GetHealth() <= 0)
         {
+            cout << "Battle Over\n";
+            break; //Breaks Loop
+        }
+        else if (enemy.GetEnemyHealth() <= 0)
+        {
+            player.GainExp(enemy.GetEnemyEXP());
             cout << "Battle Over\n";
             break; //Breaks Loop
         }
@@ -163,13 +199,13 @@ void InitiateBattle(Player& player, Enemy& enemy)
 
 int main()
 {
-    Player player("Unknown", 100,5,5);
+    Player player("Unknown", 100, 1 , 10, 5, 5);
     CharacterSelection(player);
 
 
 
-    cout << player.GetName() << " Health: "
-        << player.GetHealth() << std::endl;
+  /*  cout << player.GetName() << " Health: "
+        << player.GetHealth() << std::endl;*/
 
     //player.TakeDamage(25);
 
