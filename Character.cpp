@@ -5,7 +5,7 @@ using namespace std;
 
 
 // Player Properties & Methods
-Player::Player(string name, int health, int level, int MaxExp, int Atk, int Def)
+Player::Player(string name, int health, int level, int MaxExp, int Atk, int Def, int CritRate)
 {
     Name = name;
     Health = health;
@@ -13,6 +13,7 @@ Player::Player(string name, int health, int level, int MaxExp, int Atk, int Def)
     ATK = Atk;
     DEF = Def;
     MaxEXP = MaxExp;
+    CriticalRate = CritRate;
 }
 
 void Player::TakeDamage(int dmg)
@@ -38,14 +39,20 @@ string Player::SetCharacterName(string name)
 
 int Player::Damage()
 {
-    return ATK;
+    if (rand() % 100 < CriticalRate) // trigger critical
+    {
+        int critDMG = ATK * 2;
+        return critDMG;
+    }
+    else
+        return ATK;
 }
 
 int Player::GetHealth() const
 {
     return Health;
 }
-int Player::SetHealth(int amount)
+int Player::HealHealth(int amount)
 {
     return Health += amount;
 }
@@ -91,6 +98,10 @@ void Player::GainStat()
     case 1:
         DEF += (rand() % 3) + 1;
         cout << "DEF increase to " << DEF;
+        break;
+    case 2:
+        CriticalRate += (rand() % 3) + 1;
+        cout << "CritRate increase to " << CriticalRate;
         break;
     default:
         break;

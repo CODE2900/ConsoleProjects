@@ -2,18 +2,19 @@
 #define Character_H
 
 #include <string>
+#include <vector>
+#include "Skills.h"
 using namespace std;
 
 class Player {
 public:
-    Player(string name, int health,int level,int MaxExp, int Atk, int Def); // constructor
+    Player(string name, int health,int level,int MaxExp, int Atk, int Def, int CritRate); // constructor
 
     string SetCharacterName(string name);
     void TakeDamage(int amount);
-    void Defend(int damageReceive);
     int Damage();
     int GetHealth() const;
-    int SetHealth(int amount);
+    int HealHealth(int amount);
     string GetName() const;
     int GetLevel() const;
     void LevelUp(int anount);
@@ -23,11 +24,14 @@ public:
 private:
     string Name;
     int Health;
+    int Mana;
     int Level;
     int CurrentEXP = 0;
     int MaxEXP;
     int ATK;
     int DEF;
+    int CriticalRate;
+    vector<Skills> skills;
 };
 
 class Enemy {

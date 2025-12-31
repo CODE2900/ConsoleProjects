@@ -33,6 +33,29 @@ void CharacterSelection(Player& player)
         }
     }
 }
+
+void GainBuff(Player& player)
+{
+    int choice;
+
+    cout << "Which Buff do you want to receive\n";
+    cin >> choice;
+
+    switch (choice)
+    {
+    case 1:
+        //Heals
+        player.HealHealth(10);
+        break;
+    case 2:
+        //Upgrade
+        player.GainStat();
+    default:
+        cout << "Invalid Buff Cmd\n";
+
+    }
+
+}
 void InitiateBattle(Player& player, Enemy& enemy)
 {
     int commands;
@@ -52,6 +75,9 @@ void InitiateBattle(Player& player, Enemy& enemy)
             cout << "Player Deals: " << player.Damage() << endl;
             enemy.TakeDamage(player.Damage());
             break;
+        case 2:
+            cout << "Player Defends" << endl;
+            player.HealHealth(5);
         default:
             cout << "Invalid Cmd\n";
             continue;
@@ -78,31 +104,9 @@ void InitiateBattle(Player& player, Enemy& enemy)
     }
 }
 
-void GainBuff(Player& player)
-{
-    int choice;
-
-    cout << "Which Buff do you want to receive\n";
-    cin >> choice;
-
-    switch (choice)
-    {
-    case 1:
-        //Heals
-        player.SetHealth(5);
-        break;
-    case 2:
-        //Upgrade
-        player.GainStat();
-    default:
-        cout << "Invalid Buff Cmd\n";
-
-    }
-
-}
 int main()
 {
-    Player player("Unknown", 100, 1 , 10, 5, 5);
+    Player player("Unknown", 100, 1 , 10, 5, 5,25);
     CharacterSelection(player);
 
 
