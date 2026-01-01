@@ -3,12 +3,12 @@
 #include <cstdlib> // for rand(), srand()
 using namespace std;
 
-
 // Player Properties & Methods
-Player::Player(string name, int health, int level, int MaxExp, int Atk, int Def, int CritRate)
+Player::Player(string name, int health, int level, int mana, int MaxExp, int Atk, int Def, int CritRate)
 {
     Name = name;
     Health = health;
+    Mana = mana;
     Level = level;
     ATK = Atk;
     DEF = Def;
@@ -64,6 +64,29 @@ string Player::GetName() const
 int Player::GetLevel() const
 {
     return Level;
+}
+string Player::GetClassName(CharacterClass classGet) const
+{
+    switch (classGet)
+    {
+    case CharacterClass::Knight: 
+        return "Knight";
+    case CharacterClass::Ranger: 
+        return "Ranger";
+    case CharacterClass::Mage:   
+        return "Mage";
+    default: 
+        return "Unknown";
+    }
+}
+CharacterClass Player::GetCharacterClass()
+{
+    return CharClass;
+}
+CharacterClass Player::SetCharacterClass(CharacterClass setClass)
+{
+    CharClass = setClass;
+    return CharClass;
 }
 
 void Player::LevelUp(int amount)

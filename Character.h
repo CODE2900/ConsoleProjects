@@ -6,9 +6,15 @@
 #include "Skills.h"
 using namespace std;
 
+enum class CharacterClass
+{
+    Knight,
+    Ranger,
+    Mage
+};
 class Player {
 public:
-    Player(string name, int health,int level,int MaxExp, int Atk, int Def, int CritRate); // constructor
+    Player(string name, int health, int mana, int level,int MaxExp, int Atk, int Def, int CritRate); // constructor
 
     string SetCharacterName(string name);
     void TakeDamage(int amount);
@@ -17,6 +23,9 @@ public:
     int HealHealth(int amount);
     string GetName() const;
     int GetLevel() const;
+    string GetClassName(CharacterClass classGet) const;
+    CharacterClass GetCharacterClass();
+    CharacterClass SetCharacterClass(CharacterClass setClass);
     void LevelUp(int anount);
     void GainExp(int amount);
     void GainStat();
@@ -31,6 +40,7 @@ private:
     int ATK;
     int DEF;
     int CriticalRate;
+    CharacterClass CharClass;
     vector<Skills> skills;
 };
 

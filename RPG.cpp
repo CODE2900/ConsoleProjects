@@ -6,9 +6,13 @@ using namespace std;
 
 //Other properties method
 
-void CharacterSelection(Player& player)
+void CharacterCreation(Player& player)
 {
     int selection;
+    string nameInput;
+    cout << "Input Character Name\n";
+    cin >> nameInput;
+    player.SetCharacterName(nameInput);
     while (true)
     {
         cout << "Select your character\n";
@@ -19,13 +23,13 @@ void CharacterSelection(Player& player)
         switch (selection)
         {
         case 1:
-            player.SetCharacterName("Knight");
+            player.SetCharacterClass(CharacterClass::Knight);
             return;
         case 2:
-            player.SetCharacterName("Ranger");
+            player.SetCharacterClass(CharacterClass::Ranger);
             return;
         case 3:
-            player.SetCharacterName("Mage");
+            player.SetCharacterClass(CharacterClass::Mage);
             return;
         default:
             cout << "Invalid Pick\n";
@@ -33,7 +37,17 @@ void CharacterSelection(Player& player)
         }
     }
 }
+void ShowCharacterStats(Player& player)
+{
+    cout << endl;
+    cout << "Name: " << player.GetName() << endl;
+    cout << "Class: " << player.GetClassName(player.GetCharacterClass()) << endl;
+    cout << "Current HP: " << player.GetHealth() << endl;
+    cout << "Level: " << player.GetLevel() << endl;
+    cout << endl;
 
+
+}
 void GainBuff(Player& player)
 {
     int choice;
@@ -106,9 +120,9 @@ void InitiateBattle(Player& player, Enemy& enemy)
 
 int main()
 {
-    Player player("Unknown", 100, 1 , 10, 5, 5,25);
-    CharacterSelection(player);
-
+    Player player("Unknown", 100,20, 1 , 10, 5, 5,25);
+    CharacterCreation(player);
+    ShowCharacterStats(player);
 
 
   /*  cout << player.GetName() << " Health: "

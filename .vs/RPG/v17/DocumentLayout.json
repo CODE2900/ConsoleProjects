@@ -3,12 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\User\\Desktop\\C\u002B\u002B Exercise\\RPG\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{96C805C7-A6D0-40F2-B455-B2FBF8B72E25}|RPG.vcxproj|C:\\Users\\User\\Desktop\\C\u002B\u002B Exercise\\RPG\\Character.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{96C805C7-A6D0-40F2-B455-B2FBF8B72E25}|RPG.vcxproj|solutionrelative:Character.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{96C805C7-A6D0-40F2-B455-B2FBF8B72E25}|RPG.vcxproj|C:\\Users\\User\\Desktop\\C\u002B\u002B Exercise\\RPG\\RPG.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{96C805C7-A6D0-40F2-B455-B2FBF8B72E25}|RPG.vcxproj|solutionrelative:RPG.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{96C805C7-A6D0-40F2-B455-B2FBF8B72E25}|RPG.vcxproj|C:\\Users\\User\\Desktop\\C\u002B\u002B Exercise\\RPG\\CHARACTER.H||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{96C805C7-A6D0-40F2-B455-B2FBF8B72E25}|RPG.vcxproj|solutionrelative:CHARACTER.H||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{96C805C7-A6D0-40F2-B455-B2FBF8B72E25}|RPG.vcxproj|C:\\Users\\User\\Desktop\\C\u002B\u002B Exercise\\RPG\\Character.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{96C805C7-A6D0-40F2-B455-B2FBF8B72E25}|RPG.vcxproj|solutionrelative:Character.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{96C805C7-A6D0-40F2-B455-B2FBF8B72E25}|RPG.vcxproj|C:\\Users\\User\\Desktop\\C\u002B\u002B Exercise\\RPG\\Skills.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
@@ -17,10 +21,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{96C805C7-A6D0-40F2-B455-B2FBF8B72E25}|RPG.vcxproj|C:\\Users\\User\\Desktop\\C\u002B\u002B Exercise\\RPG\\Skills.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{96C805C7-A6D0-40F2-B455-B2FBF8B72E25}|RPG.vcxproj|solutionrelative:Skills.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{96C805C7-A6D0-40F2-B455-B2FBF8B72E25}|RPG.vcxproj|C:\\Users\\User\\Desktop\\C\u002B\u002B Exercise\\RPG\\CHARACTER.H||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{96C805C7-A6D0-40F2-B455-B2FBF8B72E25}|RPG.vcxproj|solutionrelative:CHARACTER.H||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,17 +30,17 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "RPG.cpp",
               "DocumentMoniker": "C:\\Users\\User\\Desktop\\C\u002B\u002B Exercise\\RPG\\RPG.cpp",
               "RelativeDocumentMoniker": "RPG.cpp",
               "ToolTip": "C:\\Users\\User\\Desktop\\C\u002B\u002B Exercise\\RPG\\RPG.cpp",
               "RelativeToolTip": "RPG.cpp",
-              "ViewState": "AgIAAGwAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAC8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2025-12-20T02:42:40.045Z",
               "IsPinned": true,
@@ -48,54 +48,56 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Character.h",
+              "DocumentMoniker": "C:\\Users\\User\\Desktop\\C\u002B\u002B Exercise\\RPG\\Character.h",
+              "RelativeDocumentMoniker": "Character.h",
+              "ToolTip": "C:\\Users\\User\\Desktop\\C\u002B\u002B Exercise\\RPG\\Character.h",
+              "RelativeToolTip": "Character.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAAvAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-12-24T00:48:02.171Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 2,
+              "Title": "Character.cpp",
+              "DocumentMoniker": "C:\\Users\\User\\Desktop\\C\u002B\u002B Exercise\\RPG\\Character.cpp",
+              "RelativeDocumentMoniker": "Character.cpp",
+              "ToolTip": "C:\\Users\\User\\Desktop\\C\u002B\u002B Exercise\\RPG\\Character.cpp",
+              "RelativeToolTip": "Character.cpp",
+              "ViewState": "AgIAADYAAAAAAAAAAAAqwE4AAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-12-30T01:57:50.629Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "Skills.h",
               "DocumentMoniker": "C:\\Users\\User\\Desktop\\C\u002B\u002B Exercise\\RPG\\Skills.h",
               "RelativeDocumentMoniker": "Skills.h",
               "ToolTip": "C:\\Users\\User\\Desktop\\C\u002B\u002B Exercise\\RPG\\Skills.h",
               "RelativeToolTip": "Skills.h",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAGAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2025-12-31T01:02:10.984Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "Skills.cpp",
               "DocumentMoniker": "C:\\Users\\User\\Desktop\\C\u002B\u002B Exercise\\RPG\\Skills.cpp",
               "RelativeDocumentMoniker": "Skills.cpp",
               "ToolTip": "C:\\Users\\User\\Desktop\\C\u002B\u002B Exercise\\RPG\\Skills.cpp",
               "RelativeToolTip": "Skills.cpp",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAARAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAeAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2025-12-31T01:02:20.835Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Character.h",
-              "DocumentMoniker": "C:\\Users\\User\\Desktop\\C\u002B\u002B Exercise\\RPG\\Character.h",
-              "RelativeDocumentMoniker": "Character.h",
-              "ToolTip": "C:\\Users\\User\\Desktop\\C\u002B\u002B Exercise\\RPG\\Character.h",
-              "RelativeToolTip": "Character.h",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAqwCAAAAAUAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-12-24T00:48:02.171Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Character.cpp",
-              "DocumentMoniker": "C:\\Users\\User\\Desktop\\C\u002B\u002B Exercise\\RPG\\Character.cpp",
-              "RelativeDocumentMoniker": "Character.cpp",
-              "ToolTip": "C:\\Users\\User\\Desktop\\C\u002B\u002B Exercise\\RPG\\Character.cpp",
-              "RelativeToolTip": "Character.cpp",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAGgAAAAOAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-12-30T01:57:50.629Z",
               "EditorCaption": ""
             }
           ]
