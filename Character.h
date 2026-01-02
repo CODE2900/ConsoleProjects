@@ -1,20 +1,27 @@
-#ifndef Character_H
-#define Character_H
+#ifndef CHARACTER_H
+#define CHARACTER_H
 
 #include <string>
 #include <vector>
-#include "Skills.h"
+
+// Forward declare Skills for Player class
+class Skills;
 using namespace std;
 
+// Define CharacterClass BEFORE Skills.h
 enum class CharacterClass
 {
     Knight,
     Ranger,
     Mage
 };
+
+// Include Skills.h AFTER CharacterClass is known
+#include "Skills.h"
+
 class Player {
 public:
-    Player(string name, int health, int mana, int level,int MaxExp, int Atk, int Def, int CritRate); // constructor
+    Player(string name, int health, int mana, int level, int MaxExp, int Atk, int Def, int CritRate);
 
     string SetCharacterName(string name);
     void TakeDamage(int amount);
@@ -23,12 +30,14 @@ public:
     int HealHealth(int amount);
     string GetName() const;
     int GetLevel() const;
+    bool HasSkills() const;
     string GetClassName(CharacterClass classGet) const;
-    CharacterClass GetCharacterClass();
+    CharacterClass GetCharacterClass() const;
     CharacterClass SetCharacterClass(CharacterClass setClass);
-    void LevelUp(int anount);
+    void LevelUp(int amount);
     void GainExp(int amount);
     void GainStat();
+    void CheckSkillUnlock();
 
 private:
     string Name;
@@ -46,9 +55,9 @@ private:
 
 class Enemy {
 public:
-    Enemy(string name, int HP,int Atk,int Def,int EXP);
+    Enemy(string name, int HP, int Atk, int Def, int EXP);
     static Enemy GenerateBasicEnemy();
-    static Enemy GenerateMediunEnemy();
+    static Enemy GenerateMediumEnemy();
     void TakeDamage(int dmg);
     int Damage();
     int GetEnemyHealth() const;
@@ -61,8 +70,6 @@ private:
     int ATK;
     int DEF;
     int EXP;
-
 };
-
 
 #endif

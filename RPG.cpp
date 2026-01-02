@@ -70,6 +70,10 @@ void GainBuff(Player& player)
     }
 
 }
+void CastSkill(Player& player)
+{
+
+}
 void InitiateBattle(Player& player, Enemy& enemy)
 {
     int commands;
@@ -80,7 +84,7 @@ void InitiateBattle(Player& player, Enemy& enemy)
         cout << "TURN: " << Turn << endl;
         cout << "PlayerStats: "<< player.GetName() <<" HP: " << player.GetHealth() << endl;
         cout << "EnemyStats: " << enemy.GetEnemyName() << " HP: " << enemy.GetEnemyHealth() << endl;
-        cout << "Command: 1) Attack 2) Defend\n";
+        cout << "Command: 1) Attack 2) Defend 3) Skill\n";
         cin >> commands;
 
         switch (commands)
@@ -92,6 +96,19 @@ void InitiateBattle(Player& player, Enemy& enemy)
         case 2:
             cout << "Player Defends" << endl;
             player.HealHealth(5);
+            break;
+        case 3:
+            if (player.HasSkills())
+            {
+                CastSkill(player);
+                break;
+            }
+            else
+            {
+                cout << "No Skills" << endl;
+                continue;
+            }
+               
         default:
             cout << "Invalid Cmd\n";
             continue;
@@ -140,7 +157,7 @@ int main()
         Enemy enemy("NULL", 0, 0, 0, 0); 
 
         if (player.GetLevel() >= 10)
-            enemy = Enemy::GenerateMediunEnemy();
+            enemy = Enemy::GenerateMediumEnemy();
         else
             enemy = Enemy::GenerateBasicEnemy();
 

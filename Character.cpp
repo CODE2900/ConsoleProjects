@@ -4,7 +4,7 @@
 using namespace std;
 
 // Player Properties & Methods
-Player::Player(string name, int health, int level, int mana, int MaxExp, int Atk, int Def, int CritRate)
+Player::Player(string name, int health, int mana,int level, int MaxExp, int Atk, int Def, int CritRate)
 {
     Name = name;
     Health = health;
@@ -65,6 +65,17 @@ int Player::GetLevel() const
 {
     return Level;
 }
+bool Player::HasSkills() const
+{
+    if (skills.size() <= 0)
+    {
+        return false;
+    }
+    else
+    {
+        return true;
+    }
+}
 string Player::GetClassName(CharacterClass classGet) const
 {
     switch (classGet)
@@ -79,7 +90,7 @@ string Player::GetClassName(CharacterClass classGet) const
         return "Unknown";
     }
 }
-CharacterClass Player::GetCharacterClass()
+CharacterClass Player::GetCharacterClass() const
 {
     return CharClass;
 }
@@ -93,6 +104,8 @@ void Player::LevelUp(int amount)
 {
     Level += amount;
     cout << "LEVEL UP: " << Level << endl;;
+
+    CheckSkillUnlock();
 
 }
 void Player::GainExp(int amount)
@@ -131,6 +144,28 @@ void Player::GainStat()
     }
 }
 
+void Player::CheckSkillUnlock() {
+    for (const Skills& skill : Skills::GetAllSkills()) 
+    {
+        // Skip skills for other classes or higher level than player
+        if (CharClass != skill.GetSkillClassType() || Level < skill.GetRequiredLevel())
+            continue;
+
+        // Prevent duplicates
+        bool alreadyLearned = false;
+        for (const auto& learned : skills) {
+            if (learned.GetName() == skill.GetName()) {
+                alreadyLearned = true;
+                break;
+            }
+        }
+        if (alreadyLearned) continue;
+
+        skills.push_back(skill);
+        std::cout << "Unlocked skill: " << skill.GetName() << std::endl;
+    }
+}
+
 // Enemy - Properties & Methods
 Enemy::Enemy(string name, int HP, int Atk, int Def, int Exp)
 {
@@ -156,7 +191,7 @@ Enemy Enemy::GenerateBasicEnemy()
         return Enemy("NULL", 0, 0, 0, 0);
     }
 }
-Enemy Enemy::GenerateMediunEnemy()
+Enemy Enemy::GenerateMediumEnemy()
 {
     int randomNum = rand() % 4;
 
