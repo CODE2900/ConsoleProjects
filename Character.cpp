@@ -39,7 +39,7 @@ string Player::SetCharacterName(string name)
 
 int Player::Damage()
 {
-    if (rand() % 100 < CriticalRate) // trigger critical
+    if (rand() % 100 < CriticalRate) // trigger critical chance
     {
         int critDMG = ATK * 2;
         return critDMG;
@@ -104,6 +104,7 @@ void Player::LevelUp(int amount)
 {
     Level += amount;
     cout << "LEVEL UP: " << Level << endl;;
+    Mana += 10;
 
     CheckSkillUnlock();
 
@@ -123,7 +124,7 @@ void Player::GainExp(int amount)
 }
 void Player::GainStat()
 {
-    int random = rand() % 2;
+    int random = rand() % 3;
 
     switch (random)
     {
@@ -165,6 +166,26 @@ void Player::CheckSkillUnlock() {
         std::cout << "Unlocked skill: " << skill.GetName() << std::endl;
     }
 }
+int Player::GetMana() const
+{
+    return Mana;
+}
+
+bool Player::UseMana(int cost)
+{
+    if (Mana < cost)
+        return false;
+
+    Mana -= cost;
+    return true;
+}
+
+const vector<Skills>& Player::GetSkills() const
+{
+    return skills;
+}
+
+
 
 // Enemy - Properties & Methods
 Enemy::Enemy(string name, int HP, int Atk, int Def, int Exp)
@@ -177,7 +198,7 @@ Enemy::Enemy(string name, int HP, int Atk, int Def, int Exp)
 }
 Enemy Enemy::GenerateBasicEnemy()
 {
-    int randomNum = rand() % 4;
+    int randomNum = rand() % 3;
 
     switch (randomNum)
     {
@@ -193,7 +214,7 @@ Enemy Enemy::GenerateBasicEnemy()
 }
 Enemy Enemy::GenerateMediumEnemy()
 {
-    int randomNum = rand() % 4;
+    int randomNum = rand() % 3;
 
     switch (randomNum)
     {
@@ -207,7 +228,6 @@ Enemy Enemy::GenerateMediumEnemy()
         return Enemy("NULL", 0, 0, 0, 0);
     }
 }
-
 void Enemy::TakeDamage(int dmg)
 {
     int finalDamage = dmg - DEF;
@@ -227,12 +247,10 @@ int Enemy::Damage()
     int extra = rand() % (ATK + 3);
     return ATK + extra;
 }
-
 int Enemy::GetEnemyHealth() const
 {
     return Health;
 }
-
 string Enemy::GetEnemyName() const
 {
     return Name;

@@ -53,6 +53,7 @@ void GainBuff(Player& player)
     int choice;
 
     cout << "Which Buff do you want to receive\n";
+    cout << "1) Heal 2) StatBonus\n";
     cin >> choice;
 
     switch (choice)
@@ -64,15 +65,50 @@ void GainBuff(Player& player)
     case 2:
         //Upgrade
         player.GainStat();
+        break;
     default:
         cout << "Invalid Buff Cmd\n";
 
     }
 
 }
-void CastSkill(Player& player)
-{
+void CastSkill(Player& player, Enemy& enemy)
+{   
+    const auto& skills = player.GetSkills();
 
+    cout << "\nChoose a skill:\n";
+    for (size_t i = 0; i < skills.size(); i++)
+    {
+        cout << i + 1 << ") "
+            << skills[i].GetName()
+            << " (Mana: " << skills[i].GetManaCost() << ")\n";
+    }
+
+    int choice;
+    cin >> choice;
+    choice--;
+
+    if (choice < 0 || choice >= skills.size())
+    {
+        cout << "Invalid skill selection\n";
+        return;
+    }
+
+    const Skills& skill = skills[choice];
+
+    if (!player.UseMana(skill.GetManaCost()))
+    {
+        cout << "Not enough mana!\n";
+        return;
+    }
+
+    int totalDamage = player.Damage() + skill.GetSkillDmg();
+
+    cout << player.GetName()
+        << " casts " << skill.GetName()
+        << " for " << totalDamage << " damage!\n";
+
+    enemy.TakeDamage(totalDamage);
 }
 void InitiateBattle(Player& player, Enemy& enemy)
 {
@@ -100,7 +136,7 @@ void InitiateBattle(Player& player, Enemy& enemy)
         case 3:
             if (player.HasSkills())
             {
-                CastSkill(player);
+                CastSkill(player,enemy);
                 break;
             }
             else
@@ -137,7 +173,7 @@ void InitiateBattle(Player& player, Enemy& enemy)
 
 int main()
 {
-    Player player("Unknown", 100,20, 1 , 10, 5, 5,25);
+    Player player("Unknown", 100,20, 4 , 10, 5, 5,25);
     CharacterCreation(player);
     ShowCharacterStats(player);
 

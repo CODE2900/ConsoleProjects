@@ -38,6 +38,10 @@ public:
     void GainExp(int amount);
     void GainStat();
     void CheckSkillUnlock();
+    int GetMana() const;
+    bool UseMana(int cost);
+    const vector<Skills>& GetSkills() const;
+
 
 private:
     string Name;
@@ -71,5 +75,4 @@ private:
     int DEF;
     int EXP;
 };
-
 #endif
