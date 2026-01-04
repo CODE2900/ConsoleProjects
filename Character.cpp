@@ -129,11 +129,11 @@ void Player::GainStat()
     switch (random)
     {
     case 0:
-        ATK += (rand() % 3) + 1;
+        ATK += (rand() % 1) + 1;
         cout << "ATK increase to " << ATK;
         break;
     case 1:
-        DEF += (rand() % 3) + 1;
+        DEF += (rand() % 1) + 1;
         cout << "DEF increase to " << DEF;
         break;
     case 2:
@@ -195,6 +195,7 @@ Enemy::Enemy(string name, int HP, int Atk, int Def, int Exp)
     ATK = Atk;
     DEF = Def;
     EXP = Exp;
+    IsCharging = false;
 }
 Enemy Enemy::GenerateBasicEnemy()
 {
@@ -242,10 +243,14 @@ void Enemy::TakeDamage(int dmg)
 
     cout << Name << " takes " << finalDamage << " damage!\n";
 }
-int Enemy::Damage()
+int Enemy::BasicDamage()
 {
     int extra = rand() % (ATK + 3);
     return ATK + extra;
+}
+int Enemy::HeavyDamage()
+{
+    return BasicDamage() * 2;
 }
 int Enemy::GetEnemyHealth() const
 {
@@ -258,4 +263,25 @@ string Enemy::GetEnemyName() const
 int Enemy::GetEnemyEXP() const
 {
     return EXP;
+}
+int Enemy::DamageTypeInvoke()
+{
+    if (IsCharging)
+    {
+        return HeavyDamage();
+       
+    }
+
+    int chance = rand() % 100;
+
+    if (chance < 75)
+    {
+        return BasicDamage();
+    }
+    else
+    {
+        IsCharging = true;
+        cout << "Enemy Charging ATK\n";
+        return 0;
+    }
 }

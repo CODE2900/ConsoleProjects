@@ -150,7 +150,7 @@ void InitiateBattle(Player& player, Enemy& enemy)
             continue;
         }
 
-        player.TakeDamage(enemy.Damage());
+        player.TakeDamage(enemy.DamageTypeInvoke());
         Turn += 1;
 
         if (player.GetHealth() <= 0)

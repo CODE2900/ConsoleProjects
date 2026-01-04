@@ -63,10 +63,12 @@ public:
     static Enemy GenerateBasicEnemy();
     static Enemy GenerateMediumEnemy();
     void TakeDamage(int dmg);
-    int Damage();
+    int BasicDamage();
+    int HeavyDamage();
     int GetEnemyHealth() const;
     string GetEnemyName() const;
     int GetEnemyEXP() const;
+    int DamageTypeInvoke();
 
 private:
     string Name;
@@ -74,5 +76,6 @@ private:
     int ATK;
     int DEF;
     int EXP;
+    bool IsCharging;
 };
 #endif
